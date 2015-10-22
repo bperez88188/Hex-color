@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Brendin's Visual Guide to Hexadecimal</title>
+
+	<meta property="og:title" content="A quick interactive demo of hexadecimal colors." />
+	<meta property="og:site_name" content="Internet Banditos"/>
+	<meta property="og:url" content="http://www.internetbanditos.com/hex-colors/index.html" />
+	<meta property="og:description" content="Have you ever wondered how hexadecimal colors work? No?? Well now you sure will. This is a quick interactive way to understand the breakdown of hexadecimal colors." />
+	<meta property="og:image"
+	content="http://internetbanditos.com/hex-colors/images/hex-colors-screen.jpg" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Custom Css -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<!--font awesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+<body>
+	
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 txtcenter">
+				<h1>Brendin's Interactive Guide to Hexadecimal Colors!</h1>
+				<p class="col-sm-4 col-sm-offset-4">What is a hexadecimal color? It is a way to express colors values using a hexadecimal number. <br>
+				<code>#FFFFFF</code>
+				</p>
+				
+				<h4 class="col-sm-12">Enter a two digit combination with the values between <b>"0-9" & "A-F"</b> (e.g. "3F")
+				</h4>
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Understanding Hexadecimal Colors</h4>
+		      </div>
+		      <div class="modal-body">
+		      <p>Hexidecimal is a base 16 number system. If you are unfimiliar how a base 16 number system works, <a href="https://en.wikipedia.org/wiki/Hexadecimal">Here</a> is a good link. If you do not understand what a base system is in general <a href="https://en.wikipedia.org/wiki/Radix">Here</a> you go.</p>
+		      <h2>Understanding RGB</h2>
+		      <p>To understand how we get color values from hexidecimal numbers we first need to understand how the RGB color system works. RGB is most commonly found on electronics. It is made of three primary colors, red, greeen, and blue. RGB is considered an <em>additive color</em> gammet. Meaning that when all the colors are added together you see the color white.</p>
+		      <p>If you look closely at a monitor you will notice groupings of the primary colors are positioned next to eachother. Each emmit its own color of light at different intensities. The combination of color and intensity creates the color we precieve on the screen.</p>
+		      <p>Each primary color in the RGB spectrum is represented by a numerical value between 0 & 255. 0 meaning that primary color is emmiting no light, and 255 meaning the color is at full intensity. So the RGB value 0, 0, 0 would equate to black because no light is being emitted from any of the primary colors. 255, 255, 255 would equate to white because all primary colors are emitting their full brightness.</p>
+
+
+		      <h2>The Hexidecimal Part</h2>
+		      <p>So what the does hexadecimal have to do with RGB?? Good question, lets answer that. All hexadecimal colors will have <b>six</b> digits. (well most of them. There is the possibility of eight digits, but it's less common and supported by few.)</p>
+		      <pre>#FFFFFF</pre>
+		      <p> When compared against RGB we can break down the hexadecimal into pairs. The first pair of digits in hexacimal is our first value for RGB i.e. red. The next pair for green, and last for blue.</p>
+
+		      <pre>#FF(red values)FF(green values)FF(blue values)</pre>
+		      <p>But how does FF = 255?? Well without explaining the entire base 16 system (pro-tip... read the first damn link) An "F" in the second digit place means there are 15 16's (15*16). An "F" in the first digits place equates to a strait 15. </p>
+
+		      <pre>So FF can also be expressed as (15*16)+15. Which of course equals 255</pre>
+		      
+
+		      <p>So in hexadecimal FF is the same as 255, which in RGB means the brightest value for that paricluar primary color.</p>
+
+		      <h2>Bonus</h2>
+		      <p>Earlier I mentioned there is a possibility for eight digits in the hexadecimal number. This is used by android systems for transparancy. The hexadecimal is still split by pairs but now the first pair is the transparency, then red, green, and last blue. The transparency is actually controlling the alpha chanel. You can learn more about an alpha chanel <a href="https://en.wikipedia.org/wiki/Alpha_compositing">here.</a></p>
+		      <p>Transparency is normally measured by percentage. i.e. 15% transparency means 15% of light (or the back ground) can pass through. Its challenging to creat this percent using hexadecimals.</p>
+		      <p>Remembering that screens translate color in RGB we need to base our hexcolors accordingly. So if you wanted a 20% opaque color we would need to find 20% of 255 (because RGB has values between 0-255 remember?!?). Once we have that value its time to grab the hex color.</p>
+		      <pre>255 * .20 = 51</pre>
+		      <p>Sometimes this step will leave you with a non whole number. In that case you would need to round up or down.</p>
+		      <pre>51 in hexadecimal is #33. So #33DDDDDD would be a dark color that is 20% transparent.</pre>
+		     <p>It is important to note that this interactive example does not include transparent colors =(</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-12">
+				<form class="form txtcenter inputs" >
+				  <div class="col-sm-4">
+				    <div class="col-sm-6 col-xs-4 col-xs-offset-4 col-sm-offset-3">
+				      <input type="text" class="form-control" id="hex1" placeholder="ex 'FF'" maxlength="2">
+				      <label for="hex1" class="control-label">First two Hex Values</label>
+				    </div>
+				    <br>
+				    <p class="clearfix">The first two values represent the <b>Red</b> color value</p>
+
+				    <div class="progress">
+						<div class="progress-bar bar-red" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 3%;"></div>
+					</div>
+				  </div>
+
+				  <div class="col-sm-4">
+				    <div class="col-sm-6 col-xs-4 col-xs-offset-4 col-sm-offset-3">
+				      <input type="text" class="form-control" id="hex2" placeholder="ex 'FF" maxlength="2">
+				      <label for="hex2" class="control-label">Second two Hex Values</label>
+				    </div>
+				    <br>
+				    <p class="clearfix">The Second two values represent the <b>Green</b> color value</p>
+
+				    <div class="progress">
+						<div class="progress-bar bar-green" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 3%;"></div>
+					</div>
+				  </div>
+
+				  <div class="col-sm-4">
+				    <div class="col-sm-6 col-xs-4 col-xs-offset-4 col-sm-offset-3">
+				      <input type="text" class="form-control" id="hex3" placeholder="ex 'FF" maxlength="2">
+				      <label for="hex3" class="control-label">Last two Hex Values</label>
+				    </div>
+				    <br>
+				    <p class="clearfix">The last two values represent the <b>Blue</b> color value</p>
+
+				    <div class="progress">
+						<div class="progress-bar bar-blue" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 3%;"></div>
+					</div>
+				  </div>
+				</form>
+
+				<div class="col-sm-2 col-sm-offset-5">
+				    <button class="btn btn-success btn-block btn-large" id="change" type="submit">Hex it bruh!</button>
+				</div>
+				
+				
+			</div>
+		</div>
+
+
+		<div class="row">
+			<div class="col-sm-6 col-sm-offset-3">
+			<hr>
+				<button id="colorSwatch" data-toggle="tooltip" data-placement="right" title="Red + Blue + Green"></button>
+				<div class="col-xs-6">
+					<form class="form outputs">
+						<label>Hexadecimal number</label>
+						<input type="text" val="" id="hex" class="form-control">
+						<label>RGB value</label>
+						<input type="text" val="" id="rgb" class="form-control">
+					</form>
+				</div>
+				<hr>
+			</div>
+		</div>
+		<footer>
+			<div class="row">
+				<div class="col-sm-12 txtcenter">
+					<!-- Button trigger modal -->
+					<button type="button" class="btn btn-default btn-xs stuff" data-toggle="modal" data-target="#myModal">
+					  How all this stuff works
+					</button>
+
+					<a class="github-button" href="https://github.com/bperez88188/Hex-Color-Demo" data-count-href="/bperez88188/Hex-Color-Demo/stargazers" data-count-api="/repos/bperez88188/Hex-Color-Demo#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star bperez88188/Hex-Color-Demo on GitHub">Star</a>
+				</div>
+				<div class="col-xs-12 txtcenter">
+					
+				</div>
+			</div>
+
+		</footer>
+		
+	</div>
+
+
+
+
+	<!-- ================================================================================== -->
+	
+	<!-- Latest JQuery files -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+	<!-- Color Javascript Files -->
+	<script src="js/hex_color.js"></script>
+
+	<!-- GitHub stars -->
+	<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+
+	<!-- ================================================================================== -->
+</body>
+</html>
